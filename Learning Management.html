@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>학습 관리 시스템</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app">
+    <!-- HEADER -->
+    <header class="topbar">
+      <!-- ✅ 타이틀: 클릭 수정용 id -->
+      <h1 id="appTitle">전기기사 학습 관리 시스템</h1>
+
+      <div class="topbar-right">
+        <!-- 필요 시 버튼 추가 자리 -->
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <!-- 과목 -->
+        <section class="panel">
+          <h2 class="panel-title">과목</h2>
+          <div class="subject-buttons"></div>
+          <!-- 과목 추가 버튼은 JS가 삽입 -->
+        </section>
+
+        <!-- 단계 -->
+        <section class="panel">
+          <h2 class="panel-title">단계</h2>
+          <!-- ✅ 단계 버튼 컨테이너 (JS가 버튼 렌더링) -->
+          <div class="study-step-button1"></div>
+          <!-- ✅ 단계 추가 버튼은 JS가 삽입(모달 오픈) -->
+        </section>
+
+        <!-- 장(섹션) -->
+        <section class="panel">
+          <div class="panel-head">
+            <h2 class="panel-title">장</h2>
+            <!-- ✅ 장 추가 모달 버튼: JS가 id로 감지 -->
+            <button id="openAddSectionBtn" class="btn btn-primary" type="button">장 추가</button>
+          </div>
+
+          <!-- ✅ 장 리스트: JS가 렌더링 -->
+          <div id="sectionList" class="section-list"></div>
+        </section>
+      </aside>
+
+      <!-- CONTENT -->
+      <section class="content">
+        <!-- 통계 -->
+        <section class="stats">
+          <div class="stat">
+            <div class="stat-label">전체 진도</div>
+            <div id="overallProgress" class="stat-value">0%</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">완료 강의</div>
+            <div id="completedCourses" class="stat-value">0 / 0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">학습 시간</div>
+            <div id="studyTime" class="stat-value">0h</div>
+          </div>
+        </section>
+
+        <!-- 강의 -->
+        <section class="panel">
+          <div class="panel-head">
+            <h2 class="panel-title">강의 리스트</h2>
+            <!-- ✅ 강의 추가 모달 버튼: JS가 id로 감지 -->
+            <button id="openAddCourseBtn" class="btn btn-success" type="button">강의 추가</button>
+          </div>
+
+          <!-- ✅ 강의 리스트: JS가 렌더링 -->
+          <div id="courseList" class="course-list"></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <!-- ✅ MODAL OVERLAY (JS가 dataset.type 사용) -->
+  <div id="modalOverlay" class="modal-overlay" style="display:none;" data-type="">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="modalTitle" class="modal-title">추가</h3>
+      </div>
+
+      <!-- JS가 innerHTML로 내용을 갈아끼움 -->
+      <div id="modalBody" class="modal-body"></div>
+
+      <div class="modal-actions">
+        <button id="modalCancel" class="btn btn-ghost" type="button">취소</button>
+        <button id="modalConfirm" class="btn btn-primary" type="button">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

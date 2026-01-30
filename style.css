@@ -1,0 +1,468 @@
+/* =========================
+   Base (White Modern)
+========================= */
+:root{
+  /* Surfaces */
+  --bg:#f6f7fb;                 /* 앱 바깥 배경 */
+  --panel:#ffffff;              /* 카드/패널 배경 */
+  --panel-2:#f2f4f8;            /* hover/선택용 약간 어두운 면 */
+
+  /* Text */
+  --text:#111827;               /* 기본 텍스트 */
+  --muted:#6b7280;              /* 보조 텍스트 */
+
+  /* Lines / Dividers */
+  --line:rgba(17,24,39,.10);    /* 경계선 */
+
+  /* Accents */
+  --blue:#2563eb;               /* primary */
+  --green:#10b981;              /* success */
+  --red:#ef4444;                /* danger */
+
+  /* Effects */
+  --shadow: 0 12px 30px rgba(17,24,39,.08);
+  --shadow-soft: 0 6px 18px rgba(17,24,39,.06);
+  --radius:16px;
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 380px at 10% 0%, rgba(37,99,235,.10), transparent 55%),
+    radial-gradient(900px 380px at 90% 0%, rgba(16,185,129,.08), transparent 60%),
+    var(--bg);
+}
+
+/* =========================
+   Layout
+========================= */
+.app{
+  max-width:1200px;
+  margin:0 auto;
+  padding:18px;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 16px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+#appTitle{
+  margin:0;
+  font-size:22px;
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:-0.3px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  gap:16px;
+  margin-top:16px;
+}
+
+.sidebar, .content{
+  min-width:0;
+}
+
+.panel{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.panel-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.panel-title{
+  margin:0;
+  font-size:15px;
+  font-weight:800;
+  color:var(--text);
+  letter-spacing:-0.2px;
+}
+
+.topbar-right{ display:flex; align-items:center; gap:10px; }
+
+@media (max-width: 980px){
+  .layout{ grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Buttons
+========================= */
+.btn{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:13px;
+  box-shadow: none;
+}
+
+.btn:hover{
+  background:var(--panel-2);
+}
+
+.btn-primary{
+  border-color: rgba(37,99,235,.22);
+  background: rgba(37,99,235,.10);
+  color: var(--blue);
+}
+
+.btn-primary:hover{
+  background: rgba(37,99,235,.14);
+}
+
+.btn-success{
+  border-color: rgba(16,185,129,.22);
+  background: rgba(16,185,129,.10);
+  color: #047857;
+}
+
+.btn-success:hover{
+  background: rgba(16,185,129,.14);
+}
+
+.btn-ghost{
+  background:#fff;
+  color:var(--muted);
+}
+.btn-ghost:hover{
+  background:var(--panel-2);
+}
+
+/* =========================
+   Subject / Step Buttons
+========================= */
+.subject-buttons,
+.study-step-button1{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.subject-buttons button,
+.study-step-button1 button{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:800;
+  font-size:13px;
+  position:relative;
+}
+
+.subject-buttons button:hover,
+.study-step-button1 button:hover{
+  background:var(--panel-2);
+}
+
+.subject-buttons button.active,
+.study-step-button1 button.active{
+  border-color: rgba(37,99,235,.28);
+  background: rgba(37,99,235,.10);
+  color: var(--blue);
+}
+
+.subject-buttons .del-sub,
+.study-step-button1 .del-step{
+  opacity:.85;
+}
+
+/* =========================
+   Section List
+========================= */
+.section-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.section-btn{
+  width:100%;
+  text-align:left;
+  border:1px solid var(--line);
+  background:#fff;
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.section-btn:hover{
+  background:var(--panel-2);
+}
+
+.section-btn.active{
+  border-color: rgba(37,99,235,.28);
+  background: rgba(37,99,235,.08);
+}
+
+.section-title{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  font-weight:800;
+}
+
+.del-section{
+  border:none;
+  background:transparent;
+  color:var(--red);
+  cursor:pointer;
+  font-weight:900;
+}
+
+/* =========================
+   Stats
+========================= */
+.stats{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.stat{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+  padding:14px;
+  min-width:0;
+}
+
+.stat-label{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.stat-value{
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:-0.2px;
+}
+
+@media (max-width: 680px){
+  .stats{ grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Course List
+========================= */
+.course-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.course{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:14px;
+  padding:12px;
+  box-shadow: 0 4px 14px rgba(17,24,39,.04);
+}
+
+.course:hover{
+  background:var(--panel-2);
+}
+
+.course.completed{
+  opacity:.92;
+}
+
+.course-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px; /* ✅ 겹침 방지 */
+}
+
+/* ✅ 왼쪽: 체크 + 타이틀 */
+.course-left{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-width:0;
+}
+
+.course-left strong{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* ✅ 오른쪽: 시간 + 삭제(×) */
+.course-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-shrink:0;
+}
+
+.course-duration{
+  white-space:nowrap;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* 체크박스 */
+.checkbox{
+  width:20px;
+  height:20px;
+  border-radius:6px;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  user-select:none;
+  flex-shrink:0;
+  background:#fff;
+}
+
+.checkbox:hover{
+  background:var(--panel-2);
+}
+
+.checkbox.checked{
+  border-color: rgba(16,185,129,.35);
+  background: rgba(16,185,129,.12);
+  color:#047857;
+  font-weight:900;
+}
+
+/* ✅ 강의 삭제 버튼: "×" */
+.del-course{
+  position: static;
+  font-size: 16px;
+  line-height: 1;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  color: var(--red);
+  background: #fff;
+  cursor: pointer;
+}
+
+.del-course:hover{
+  background: rgba(239,68,68,.08);
+  color: #b91c1c;
+}
+
+/* =========================
+   Modal (White)
+========================= */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background: rgba(17,24,39,.35);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:50;
+}
+
+.modal{
+  width:min(520px, 96vw);
+  background:#fff;
+  border-radius:16px;
+  border:1px solid var(--line);
+  box-shadow: 0 20px 70px rgba(17,24,39,.22);
+  overflow:hidden;
+}
+
+.modal-head{
+  padding:14px 16px 8px;
+  background: #fff;
+}
+
+.modal-title{
+  margin:0;
+  font-size:16px;
+  font-weight:900;
+  color:var(--text);
+}
+
+.modal-body{
+  padding: 8px 16px 14px;
+}
+
+.modal-body input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  outline:none;
+  font-size:14px;
+  background:#fff;
+  color:var(--text);
+}
+
+.modal-body input:focus{
+  border-color: rgba(37,99,235,.35);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.10);
+}
+
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  padding:12px 16px 16px;
+  background:#fff;
+}
+
+/* =========================
+   Small utilities
+========================= */
+#courseList p{
+  margin:0;
+  color:var(--muted);
+}
+
+/* ===== Completed course: strike-through ===== */
+.course.completed .course-left strong{
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(17,24,39,.35);
+  color: var(--muted);
+}
